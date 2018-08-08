@@ -1,0 +1,30 @@
+{% extends 'backend.html.twig' %}
+{% block backend %}
+<h2>{{ title }}</h2>
+<hr>
+{{ form_start(form, { 'attr': {'class': 'form'} }) }}
+    {{ form_errors(form) }}
+ <div class="form-group">
+	{{ form_errors(form.username) }}    
+    {{ form_label(form.username, null, {'label_attr': {'class':'control-label'}}) }}
+    <div class="">{{ form_widget(form.username, {'attr': {'class': 'form-control','novalidate': 'novalidate'}}) }}</div>
+   </div>
+   <div class="form-group">
+	{{ form_errors(form.plainpassword) }}    
+    {{ form_label(form.plainpassword, null, {'label_attr': {'class':'control-label'}}) }}
+    <div class="">{{ form_widget(form.plainpassword, {'attr': {'class': 'form-control','novalidate': 'novalidate'}}) }}</div>
+   </div>
+   <div class="form-group">
+	{{ form_errors(form.roles) }}    
+    {{ form_label(form.roles, null, {'label_attr': {'class':'control-label'}}) }}
+    <div class="">{{ form_widget(form.roles, {'attr': {'class': 'form-control','novalidate': 'novalidate'}}) }}</div>
+   </div>
+   
+    {# form_row(form.tname, {'label': 'Type Name'}) #}
+	{{ form_rest(form) }}
+	<div class="clearfix"><div class="pull-right">
+	<button class="btn btn-danger" type="button" onclick="javascript:history.back()"><i class="fa-arrow-left fa fa-lg" aria-hidden="true"></i> Cancel & Go Back</button> 
+	<button class="btn btn-primary"><i class="fa-floppy-o fa fa-lg" aria-hidden="true"></i> Save</button> 
+	</div></div>
+{{ form_end(form) }}
+{% endblock %}

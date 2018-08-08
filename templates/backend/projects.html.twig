@@ -1,0 +1,16 @@
+{% extends 'backend.html.twig' %}
+{% block backend %}
+<h2>Projects</h2><hr></hr>
+<table class="table table-sm table-striped table-dark table-hover">
+<thead>
+<tr>
+<th>Route</th><th>Title</th><th>Actions</th>
+</tr>
+</thead>
+{% for project in projects %}
+<tr><td><a href="{{ path('backend_project_edit',{'uuid':project.uuid}) }}">{{ project.route }}</a></td><td>{{ project.title }}</td><td><a href="">Remove</a></td></tr>
+{% endfor %}
+</table>
+<a href="{{ path('backend_project_add') }}" class="btn btn-primary">Add <i class="fa fa-plus"></i></a>
+{% endblock %}
+

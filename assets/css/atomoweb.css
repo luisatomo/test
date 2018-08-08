@@ -1,0 +1,121 @@
+body{background:url(../img/retro.png) #fff center top no-repeat;}
+.navbar.navbar-dark{
+	background:rgb(223,224,224,0.2);
+	border-bottom:1px solid #11689b;
+}
+.navfull{
+	background:rgb(223,224,224,0.2);
+}
+.navfull .nav-item{
+	padding:0 15px;
+	
+}
+.navbar-dark .navbar-nav{
+	background:rgb(223,224,224,0.5);
+}
+.navfull .nav-item a, .navbar-dark .navbar-nav .nav-link{
+	color:#1b3664;
+}
+.navfull .nav-item.active a, .navfull .nav-item:hover a, .navfull .nav-item:focus a{
+	color:#fff;
+}
+.navfull .nav-item.active,.navfull .nav-item:hover,.navfull .nav-item:focus{
+	background:#16979a;
+	color:#fff;
+	border-radius: .25rem !important;
+}
+.favicon{
+	max-height:100px!important;
+}
+.bg-violet{	background:rgb(223,224,224,0.2);
+}
+.bg-violet .navbar-toggler{
+	background:#16979a;
+}
+.bg-violet .navbar-brand{
+	color:#272662;
+}
+.bg-violet .navbar-toggler-icon{
+	color:#fff;
+}
+.bg-violet .nav-item{
+	padding:0 15px;
+}
+.bg-violet form{
+	padding:0 15px;
+}
+.bg-violet .nav-item:hover,.bg-violet .nav-item:focus{
+	background:#0e779b;
+}
+.bg-square{background:#f0f0f0;}
+header h1{margin:30px auto;}
+.content{
+background:rgba(118,209,242,0.3);
+border-radius:10px;
+padding:30px;
+}
+hr{
+	border-top:1px solid #1b3664;
+}
+.sidebar{
+background:#dedede;
+padding-top:30px;
+padding-bottom:30px;
+}
+
+.sidebar .box .nav a{
+color:#1b3664;
+font-size:0.9rem;
+}
+
+.sidebar .box .nav a:hover, .sidebar .box .nav a:focus{
+color:#fff;
+background:#069;
+}
+.sidebar .h3padding{
+padding-top:10px;
+padding-bottom:10px;
+border-top:2px solid #1b3664;
+background:rgba(255,255,255,0.2);
+}
+
+h2{
+color:#272662;
+}
+
+h3{
+text-transform:uppercase;
+font-weight:bold;
+color:#272662;
+}
+
+.sidebar h3{
+font-size:20px;
+font-weight:bold;
+border-right:10px solid #069;
+padding-left:12px;
+text-transform:uppercase;
+color:#4895d1;
+
+margin-bottom:0px;
+}
+
+.box{
+margin-top:30px;
+}
+
+.box ul li{
+border-top:1px dashed #169fd1;
+}
+
+.title{
+font-weight:900;
+}
+
+footer{
+margin-top:30px;
+margin-bottom:0px;
+padding:10px;
+background:#0e779b;
+color:#fff;
+}

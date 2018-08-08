@@ -1,0 +1,19 @@
+{% extends 'backend.html.twig' %}
+{% block backend %}
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>Login!</h1>
+{% for label, messages in app.flashes(['danger', 'error']) %}
+    {% for message in messages %}
+        <div class="alert alert-{{ label }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endfor %}
+            {{ form_start(form) }}
+                {{ form_row(form._username) }}
+                {{ form_row(form._password) }}
+ <button type="submit" class="btn btn-success">Login <span class="fa fa-lock"></span></button>            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

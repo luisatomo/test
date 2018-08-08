@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+{% block body %}
+<h3>Blog</h3>
+<hr>
+{% set c=0 %}
+{% for p in projects %}
+{% if c%2==0 %}
+<div class="row">
+{% endif %}
+<div class="col-sm-6"><a href="{{ path('post', {'route':p.route}) }}">{{ p.title }}</a>
+<br>
+<span class="figure-caption">{{ p.description }}</span>
+</div>
+{% set c=c+1 %}
+{% if c%2==0 %}
+</div>
+{% endif %}
+{% endfor %}
+{% if c%2!=0 %}
+</div>
+{% endif %}
+{% endblock %}
