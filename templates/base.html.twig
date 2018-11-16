@@ -37,6 +37,7 @@
 {% for libro in libros %}
 <tr><td>{{ libro.titulo }}</td><td>{{libro.fecha|date('d/m/Y')}}</td><td>{{ libro.autorescount}}</td></tr>
 {% endfor %}
+<tfoot><th>Titulo</th><th>Edicion</th><th>Autores</th></tfoot>
 </table>
  {% endblock %}
 </div>
