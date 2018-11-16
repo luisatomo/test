@@ -74,7 +74,11 @@ $(document).ready(function() {
 } );
 </script>
   {% block customjs %}
-
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+      $( ".table tfoot th:eq(2)" ).datepicker( "option", "dateFormat", 'dd/MM/YYYY');
+    });
   {% endblock %}
   </body>
 </html>
