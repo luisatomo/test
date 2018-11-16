@@ -17,7 +17,7 @@ class MainController extends Controller
 	{
 		$em = $this->getDoctrine()->getManager();
 	//$result='OK';		
-	$libros=$entityManager->getRepository('App:Libro')->findAll();
+	$libros=$em->getRepository('App:Libro')->findAll();
 	
 		return $this->render('base.html.twig',array(
 				'libros' => $libros
