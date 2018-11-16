@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Form\Type;
-
+use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -28,8 +28,8 @@ class LibroType extends AbstractType
 				'expanded' => true,   // Render as checkboxes // Assuming that the entity has a "name" property
 				'class'    => Autor::class,
 				'query_builder' => function (EntityRepository $repo) {
-                    return $repo->createQueryBuilder('f')
-                        ->where('f.id > :id')
+                    return $repo->createQueryBuilder('a')
+                        ->where('a.id > :id')
                         ->setParameter('id', 1);
                 }
 			));
