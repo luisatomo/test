@@ -30,7 +30,7 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
          - { path: ^/backend, roles: ROLE_ADMIN }
-         - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: http, host: test.atomoweb\.com$}
+        # - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: http, host: test.atomoweb\.com$}
          - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY,requires_channel: http, host: atomoweb\.ca$ }
          - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: http, host: localhost$ }
         # - { path: ^/profile, roles: ROLE_USER }
