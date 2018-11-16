@@ -5,11 +5,138 @@ namespace App\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use App\Entity\Contact;
-use App\Form\Type\ContactType;
+use App\Entity\EBayItem;
 
-class AtomoController extends Controller
+class MainController extends Controller
 {
+	
+	public function index(Request $request)
+	{
+		$entityManager = $this->getDoctrine()->getManager();
+		$previous=$entityManager->getRepository('App:EBayItem')->findAll();
+	$result='';
+	$itemID=$request->get('itemid');
+	if($itemID){
+		$ebay=new EBayItem();
+		//$jsonresponse=file_get_contents("http://open.api.ebay.com/shopping?callname=GetSingleItem&responseencoding=json&appid=Eduardoe-EOCSC1-PRD-4f8fe58ca-beb2fa54&siteid=0&version=967&ItemID=".$itemID);
+		$appID = 'Eduardoe-EOCSC1-PRD-4f8fe58ca-beb2fa54';
+		 	
+		$exexex = $itemID;
+			
+		$request = '<?xml version="1.0" encoding="utf-8"?>
+		
+		<GetSingleItemRequest xmlns="urn:ebay:apis:eBLBaseComponents" >
+		
+		<ItemID>' . $exexex . '</ItemID>
+		
+		<IncludeSelector>Details,ShippingCosts,ItemSpecifics,Variations</IncludeSelector>
+		
+		</GetSingleItemRequest>';
+			
+		$callName = 'GetSingleItem';
+			
+		$compatibilityLevel = 647;
+			
+		$endpoint = "http://open.api.ebay.com/shopping";
+			
+		$headers [] = "X-EBAY-API-CALL-NAME: $callName";
+			
+		$headers [] = "X-EBAY-API-APP-ID: $appID";
+			
+		$headers [] = "X-EBAY-API-VERSION: $compatibilityLevel";
+			
+		$headers [] = "X-EBAY-API-REQUEST-ENCODING: XML";
+			
+		$headers [] = "X-EBAY-API-RESPONSE-ENCODING: XML";
+			
+		$headers [] = "X-EBAY-API-SITE-ID: 0";
+			
+		$headers [] = "Content-Type: text/xml";
+			
+		$curl = curl_init ( $endpoint );
+			
+		curl_setopt ( $curl, CURLOPT_SSL_VERIFYPEER, FALSE );
+			
+		curl_setopt ( $curl, CURLOPT_SSL_VERIFYHOST, FALSE );
+			
+		curl_setopt ( $curl, CURLOPT_RETURNTRANSFER, 1 );
+			
+		curl_setopt ( $curl, CURLOPT_POST, 1 );
+			
+		curl_setopt ( $curl, CURLOPT_HTTPHEADER, $headers );
+			
+		curl_setopt ( $curl, CURLOPT_POSTFIELDS, $request );
+			
+		$response = curl_exec ( $curl );
+			
+		$data = simplexml_load_string($response) ;
+		//$data=json_decode($jsonresponse);
+		
+$AckResponse = $data->Ack ;
+$result=$AckResponse;
+if($result=='Failure'){
+	$ebay->setItemid($itemID);
+	$ebay->setTitle('Item Not Found');
+	$entityManager->persist($ebay);
+	$entityManager->flush();
+	$result='Item Not Found';
+	
+}
+else{
+	$ebay->setItemid($itemID);
+	$ebay->setTitle($data->Item->Title);
+	$ebay->setSeller($data->Item->Location);
+	$ebay->setPrice($data->Item->ConvertedCurrentPrice);
+	$ebay->setImage($data->Item->PictureURL);
+	$entityManager->persist($ebay);
+	$entityManager->flush();
+	$result='Success';
+	
+}
+		
+	}
+	//$search=$entityManager->getRepository('App:EBayItem')->findBy();
+	
+		return $this->render('base.html.twig',array(
+				'result' => $result,
+				'previousx'=>$previous
+		));
+	
+	}
+	
+	public function remove($id)
+	{
+		$entityManager = $this->getDoctrine()->getManager();
+		$ebay=$entityManager->getRepository('App:EBayItem')->findOneBy(array(
+				'id'=>$id
+		));
+		$entityManager->remove($ebay);
+		$entityManager->flush();
+		return $this->redirect($this->generateUrl('ebay'));
+		
+	}
+	
+	/*public function search(Request $request,$value=NULL){
+		$response = array (
+				'status' => 'success',
+				'code' => 200,
+				'data' => array (
+						array (
+								'ftimage' => 'Featured Image 1',
+								'title' => 'Title 1',
+								'price' => 'Price 1',
+								'shortDesc' => 'Short Description 1' 
+						),
+						array (
+								'ftimage' => 'Featured Image 2',
+								'title' => 'Title 2',
+								'price' => 'Price 2',
+								'shortDesc' => 'Short Description 2' 
+						) 
+				) 
+		);
+		return $this->json($response);	
+	}
     public function index(Request $request,$route='home')
     {
     	$entityManager = $this->getDoctrine()->getManager();
@@ -163,6 +290,6 @@ class AtomoController extends Controller
     			'title' => 'Contact Me',
     			'latposts'=>$latposts
     	));
-    }
+    }*/
     
 }

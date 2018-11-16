@@ -6,125 +6,35 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" href="{{ asset('build/app.css') }}" />
 <link rel="icon" type="image/png"  href="{{ asset('build/images/favicon.png') }}" />
- {% block description %}<meta name="description" content="{{ page.description|striptags }}">{% endblock %}
-  {% block meta %} <meta name="keywords" content="{{ page.meta }}"> {% endblock %}
-    <title>AtomoWeb.com - {% block title %}{{ page.title }}{% endblock %}</title>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-35424121-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'UA-35424121-1');
-</script>
+    <title>Ebay Search</title>
     
   </head>
   <body>
 <header>
- <nav class="navbar navfull navbar-dark bg-violet d-sm-none">
-      <a class="navbar-brand" href="/"><img src="{{ asset('build/images/atomoweb.png') }}" class="favicon" alt="AtomoWeb" /></a>
-      <button class="navbar-toggler bg-violet" type="button" data-toggle="collapse" data-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse " id="navbarsExample01">
-        <ul class="navbar-nav mr-auto">
-        <li class="nav-item{% if 'index' in app.request.get('_route') %} active{% endif %}">
-            <a class="nav-link" href="{{ path('index') }}">Home{% if 'index' in app.request.get('_route') %} <span class="sr-only">(current)</span>{% endif %}</a>
-          </li>
-          <li class="nav-item{% if 'page' in app.request.get('_route') and 'about-me'== app.request.get('route') %} active{% endif %}">
-            <a class="nav-link" href="{{ path('page',{'route':'about-me'}) }}">About Me{% if 'page' in app.request.get('_route') and 'about-me'== app.request.get('route') %} <span class="sr-only">(current)</span>{% endif %}</a>
-          </li>
-          <li class="nav-item{% if 'projects' in app.request.get('_route') %} active{% endif %}">
-            <a class="nav-link" href="{{ path('projects') }}">My Projects{% if 'projects' in app.request.get('_route') %} <span class="sr-only">(current)</span>{% endif %}</a>
-          </li>
-          <li class="nav-item{% if 'blog' in app.request.get('_route') %} active{% endif %}">
-            <a class="nav-link" href="{{ path('blog') }}">Blog{% if 'blog' in app.request.get('_route') %} <span class="sr-only">(current)</span>{% endif %}</a>
-          </li>
-          <li class="nav-item{% if 'contact' in app.request.get('_route') %} active{% endif %}">
-            <a class="nav-link" href="{{ path('contact') }}">Contact Me {% if 'contact' in app.request.get('_route') %} <span class="sr-only">(current)</span>{% endif %}</a>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-md-0 d-none">
-          <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-        </form>
-      </div>
-    </nav>
-    <div class="navfull container d-none d-sm-block mr-auto align-items-center rounded">
-    <nav class="navbar navbar-nav flex-row justify-content-between">
-        <li class="nav-item{% if 'index' in app.request.get('_route') %} active{% endif %}">
-            <a class="nav-link" href="{{ path('index') }}">Home{% if 'index' in app.request.get('_route') %} <span class="sr-only">(current)</span>{% endif %}</a>
-          </li>
-          <li class="nav-item{% if 'page' in app.request.get('_route') and 'about-me'== app.request.get('route') %} active{% endif %}">
-            <a class="nav-link" href="{{ path('page',{'route':'about-me'}) }}">About Me{% if 'page' in app.request.get('_route') and 'about-me'== app.request.get('route') %} <span class="sr-only">(current)</span>{% endif %}</a>
-          </li>
-          <li class="nav-item{% if 'projects' in app.request.get('_route') %} active{% endif %}">
-            <a class="nav-link" href="{{ path('projects') }}">My Projects{% if 'projects' in app.request.get('_route') %} <span class="sr-only">(current)</span>{% endif %}</a>
-          </li>
-          <li class="nav-item{% if 'blog' in app.request.get('_route') %} active{% endif %}">
-            <a class="nav-link" href="{{ path('blog') }}">Blog{% if 'blog' in app.request.get('_route') %} <span class="sr-only">(current)</span>{% endif %}</a>
-          </li>
-          <li class="nav-item{% if 'contact' in app.request.get('_route') %} active{% endif %}">
-            <a class="nav-link" href="{{ path('contact') }}">Contact Me {% if 'contact' in app.request.get('_route') %} <span class="sr-only">(current)</span>{% endif %}</a>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-md-0 d-none">
-          <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-        </form>
-        </nav>
-    </div>
-    
-<h1 class="text-center"><span class="d-none d-sm-inline"><img src="{{ asset('build/images/atomoweb.png') }}" alt="AtomoWeb - Luis Mendoza - Freelancer - Full-Stack Developer" class="img-fluid"></span></h1>
+    <h1>Ebay Search</h1>
 </header>
 <div class="main-content">
 <div class="container">
-<div class="row">
-<div class="col-md-9">
-{% for label, messages in app.flashes(['danger', 'error', 'success']) %}
-    {% for message in messages %}
-        <div class="alert alert-{{ label }}">
-            {{ message }}
-        </div>
-    {% endfor %}
-{% endfor %}
-<div class="content">
-{% block body %}
-{% if page.route=='home' %}
-<h2>{{ page.title }}</h2>
-{% else %}
-<h3>{{ page.title }}</h3>
+{% if result %}
+<p class="bg bg-warning">{{ result }}</p>
 {% endif %}
-<hr>
-{{ page.body|raw }}
-{% endblock %}
-</div>
-</div>
-<div class="col-md-3 sidebar m-3 m-md-0 rounded">
-<div class="d-flex flex-row">
-  <div class="p-2"><img src="{{ asset('build/images/luis-mendoza.jpg') }}" alt="Luis Mendoza" class="rounded img-fluid" /></div>
-  <div class="p-2"><p><small class="title">Luis Mendoza</small><br><small><i>Systems Engineer</i></small><br><small><i>luis@atomoweb.com</i></small></p>
-<p><a href="/contact" class="btn btn-primary">Contact me</a></p>
-</div>
-</div>
-<div class="box">
-<div class="h3padding">
-<h3>Latest Posts</h3>
-</div>
-<ul class="nav flex-column">
-  {% for post in latposts %}
-
-  <li class="nav-item">
-    <a class="nav-link" href="{{ path('post', {'route':post.route}) }}">{{ post.title }}</a>
-  </li>
-{% endfor %}
-</ul>
-</div>
-</div></div>
+ 
+ <form class="form" action="{{ path('ebay') }}">
+ <label for="itemid">Item ID: </label>
+ <input type="text" class="form-control" name="itemid" id="itemid"/>
+ <button type="submit" class="btn btn-primary">Search...</button>
+ </form>
+ <h2>Previous Searches</h2>
+  <table class="table">
+<thead><th>Image</th><th>Item ID</th><th>Title</th><th>Seller</th><th>Price</th><th>Actions</th></thead>
+  {% for pre in previousx %}
+  <tr><td>{% if pre.image %}<img src="pre.image" class="img-responsive" />{% endif %}</td><td>{{ pre.itemid }}</td><td>{{ pre.title }}</td><td>{{ pre.seller }}</td>{{ pre.price }}<td></td><td><a href="{{ path('remove',{'id':pre.id}) }}">Remove</a></td></tr>
+  {%  endfor %}
+  </table>
 </div>
 </div>
 <footer class="text-center">
-<small>Designed by Luis Mendoza ©2018</small>
 </footer>
 <script src="{{ asset('build/app.js') }}"></script>
     <!-- Optional JavaScript -->
