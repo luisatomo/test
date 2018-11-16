@@ -1,7 +1,0 @@
-ebay:
-    path: /
-    controller: App\Controller\MainController::index
-    
-remove:
-    path: /remove/{id}
-    controller: App\Controller\MainController::remove
