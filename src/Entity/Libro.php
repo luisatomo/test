@@ -39,8 +39,8 @@ class Libro{
 	/**
      * @ORM\ManyToMany(targetEntity="Autor")
      * @ORM\JoinTable(name="autor_libro",
-     *      joinColumns={@JoinColumn(name="libro_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@JoinColumn(name="autor_id", referencedColumnName="id", unique=true)}
+     *      joinColumns={@ORM\JoinColumn(name="libro_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="autor_id", referencedColumnName="id", unique=true)}
      *      )
      */
 
