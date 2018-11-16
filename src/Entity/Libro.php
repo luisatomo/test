@@ -79,7 +79,7 @@ class Libro{
         return $this->autores;
 	}
 
-	public function setAutores()
+	public function setAutores($autores)
     {
 		$this->autores=$autores;
 		return $this;
