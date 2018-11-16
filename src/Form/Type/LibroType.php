@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use App\Form\Type\AutorType;
+use App\Entity\Autor;
 
 class LibroType extends AbstractType
 {
@@ -21,14 +22,12 @@ class LibroType extends AbstractType
 		->add('fecha',DateType::class,
 			array('required'=> true,
 			'label'=> 'Edicion'))
-		->add('autores', CollectionType::class, array(
-				'entry_type' => AutorType::class,
-				'entry_options' => array('label' => false),
-				'allow_add' => true,
-				'prototype' => true,
-				'by_reference' => true,
-				'allow_delete' => true,
-				'required' => false,
+		->add('autores', EntityType::class, array(
+				'multiple' => true,   // Multiple selection allowed
+				'expanded' => true,   // Render as checkboxes
+				'property' => 'nombre', // Assuming that the entity has a "name" property
+				'class'    => Autor::class,
+			);
 			));
 		//->add('save', 'submit', array('attr' => array('class'=>'buttonx')));
 	}
