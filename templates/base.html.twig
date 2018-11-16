@@ -30,7 +30,7 @@
 <table class="table">
 <thead><th>Titulo</th><th>Edicion</th></thead>
 {% for libro in libros %}
-<tr><td>{{ libro.titulo }}</td><td>{{libro.edicion|date('d/m/Y')}}</td></tr>
+<tr><td>{{ libro.titulo }}</td><td>{{libro.fecha|date('d/m/Y')}}</td></tr>
 {% endfor %}
 </table>
  {% endblock %}
