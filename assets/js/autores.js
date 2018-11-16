@@ -2,11 +2,11 @@ var $collectionHolder;
 
 // setup an "add a autor" link
 var $addAutorButton = $('<button type="button" class="add_autor_link">Add a autor</button>');
-var $newLinkLi = $('<li></li>').append($addAutorButton);
+var $newLinkLi = $('<div></div>').append($addAutorButton);
 
 jQuery(document).ready(function() {
     // Get the ul that holds the collection of autores
-    $collectionHolder = $('ul.autores');
+    $collectionHolder = $('div#libro_autores');
 
     // add the "add a autor" anchor and li to the autores ul
     $collectionHolder.append($newLinkLi);
@@ -42,6 +42,6 @@ function addAutorForm($collectionHolder, $newLinkLi) {
     $collectionHolder.data('index', index + 1);
 
     // Display the form in the page in an li, before the "Add a autor" link li
-    var $newFormLi = $('<li></li>').append(newForm);
+    var $newFormLi = $('<div></div>').append(newForm);
     $newLinkLi.before($newFormLi);
 }
