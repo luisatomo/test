@@ -1,6 +1,14 @@
-ebay:
+front:
     path: /
     controller: App\Controller\MainController::index
+
+new:
+    path: /new
+    controller: App\Controller\MainController::new
+
+edit:
+    path: /
+    controller: App\Controller\MainController::edit
     
 remove:
     path: /remove/{id}

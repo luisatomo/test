@@ -7,12 +7,12 @@
 <link rel="stylesheet" href="{{ asset('build/app.css') }}" />
 <link rel="icon" type="image/png"  href="{{ asset('build/images/favicon.png') }}" />
 
-    <title>Ebay Search</title>
+    <title>Libros</title>
     
   </head>
   <body>
 <header>
-    <h1>Ebay Search</h1>
+    <h1>Libros</h1>
 </header>
 <div class="main-content">
 <div class="container">
@@ -20,18 +20,9 @@
 <p class="bg bg-warning">{{ result }}</p>
 {% endif %}
  
- <form class="form" action="{{ path('ebay') }}">
- <label for="itemid">Item ID: </label>
- <input type="text" class="form-control" name="itemid" id="itemid"/>
- <button type="submit" class="btn btn-primary">Search...</button>
- </form>
- <h2>Previous Searches</h2>
-  <table class="table">
-<thead><th>Image</th><th>Item ID</th><th>Title</th><th>Seller</th><th>Price</th><th>Actions</th></thead>
-  {% for pre in previousx %}
-  <tr><td>{% if pre.image %}<img src="pre.image" class="img-responsive" />{% endif %}</td><td>{{ pre.itemid }}</td><td>{{ pre.title }}</td><td>{{ pre.seller }}</td>{{ pre.price }}<td></td><td><a href="{{ path('remove',{'id':pre.id}) }}">Remove</a></td></tr>
-  {%  endfor %}
-  </table>
+ {% block content %}
+
+ {% endblock %}
 </div>
 </div>
 <footer class="text-center">

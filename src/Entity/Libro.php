@@ -5,7 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  *
  * @ORM\Table(name="cb_libro")
@@ -35,6 +35,8 @@ class Libro{
 	 *
 	 */
 	protected $fecha;
+
+	protected $autores;
 	
 	
 	public function getId() {
@@ -59,6 +61,15 @@ class Libro{
 	public function __toString(){
 		return $this->titulo;
 	}
+
+	public function __construct(){
+		$this->autores=new ArrayCollection();
+	}
+
+	public function getAutores()
+    {
+        return $this->autores;
+    }
 	
 	
 	
