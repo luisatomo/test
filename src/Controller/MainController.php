@@ -7,6 +7,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Libro;
 use App\Entity\Autor;
+use App\Form\Type\LibroType;
+use App\Form\Type\AutorType;
 
 class MainController extends Controller
 {
