@@ -24,6 +24,19 @@ class MainController extends Controller
 		));
 	
 	}
+
+	public function autores(Request $request)
+	{
+		$em = $this->getDoctrine()->getManager();
+	//$result='OK';		
+	$autores=$em->getRepository('App:Autor')->findAll();
+	
+		return $this->render('base.html.twig',array(
+				'autores' => $autores
+		));
+	
+	}
+
 	public function new(Request $request)
     {
 		$em=$this->getDoctrine()->getManager();
