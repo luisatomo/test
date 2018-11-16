@@ -4,7 +4,7 @@
 <table class="table table-striped">
 <thead><th>Nombre</th></thead>
 {% for autor in autores %}
-<tr><td>{{ autor.nombre }}</td></tr>
+<tr><td><a href="{{path('editautor',{'id':autor.id})}}">{{ autor.nombre }}</a></td></tr>
 {% endfor %}
 <tfoot><th>Nombre</th></tfoot>
 </table>
