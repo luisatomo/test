@@ -25,8 +25,7 @@ class LibroType extends AbstractType
 			'label'=> 'Edicion'))
 		->add('autores', EntityType::class, array(
 				'multiple' => true,   // Multiple selection allowed
-				'expanded' => true,   // Render as checkboxes
-				'property' => 'nombre', // Assuming that the entity has a "name" property
+				'expanded' => true,   // Render as checkboxes // Assuming that the entity has a "name" property
 				'class'    => Autor::class
 			));
 		//->add('save', 'submit', array('attr' => array('class'=>'buttonx')));
