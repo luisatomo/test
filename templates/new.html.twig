@@ -5,13 +5,17 @@
 <div class="row">
 <div class="col-sm-6">
     {{ form_errors(form.titulo) }}
-{{form_widget(form.titulo) }}
+    {{form_label(form.titulo)}}
+{{form_widget(form.titulo,{ 'attr': {'class': 'form-control'} }) }}
     {{ form_errors(form.fecha) }}
-    {{form_widget(form.fecha) }}
+        {{form_label(form.fecha)}}
+    {{form_widget(form.fecha,{ 'attr': {'class': 'form-control'}) }}
     </div>
     <div class="col-sm-6">
 
     {{ form_errors(form.autores) }}
+        {{form_label(form.autores)}}
+
     {{form_widget(form.autores) }}
 
 </div>

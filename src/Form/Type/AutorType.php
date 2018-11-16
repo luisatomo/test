@@ -13,7 +13,7 @@ class AutorType extends AbstractType
 	{
 		$builder->add('nombre', TextType::class, 
 				array('required'=>true,
-						'label' => 'Titulo'
+						'label' => 'Nombre'
 	));
 		//->add('save', 'submit', array('attr' => array('class'=>'buttonx')));
 	}
