@@ -16,6 +16,12 @@
 </header>
 <div class="main-content">
 <div class="container">
+<nav>
+<ul class="menu">
+<li><a href="{{ path('front') }}">Libros</a></li>
+<li><a href="{{ path('new') }}">Nuevo Libro</a></li>
+</ul>
+</nav>
 {% if result %}
 <p class="bg bg-warning">{{ result }}</p>
 {% endif %}
