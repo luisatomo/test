@@ -5,7 +5,7 @@ namespace App\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use App\Entity\EBayItem;
+use App\Entity\TestItem;
 
 class MainController extends Controller
 {
@@ -14,87 +14,9 @@ class MainController extends Controller
 	{
 		$entityManager = $this->getDoctrine()->getManager();
 		$previous=$entityManager->getRepository('App:EBayItem')->findAll();
-	$result='';
-	$itemID=$request->get('itemid');
-	if($itemID){
-		$ebay=new EBayItem();
-		//$jsonresponse=file_get_contents("http://open.api.ebay.com/shopping?callname=GetSingleItem&responseencoding=json&appid=Eduardoe-EOCSC1-PRD-4f8fe58ca-beb2fa54&siteid=0&version=967&ItemID=".$itemID);
-		$appID = 'Eduardoe-EOCSC1-PRD-4f8fe58ca-beb2fa54';
-		 	
-		$exexex = $itemID;
-			
-		$request = '<?xml version="1.0" encoding="utf-8"?>
+	$result='OK';
+	$previous=Null;
 		
-		<GetSingleItemRequest xmlns="urn:ebay:apis:eBLBaseComponents" >
-		
-		<ItemID>' . $exexex . '</ItemID>
-		
-		<IncludeSelector>Details,ShippingCosts,ItemSpecifics,Variations</IncludeSelector>
-		
-		</GetSingleItemRequest>';
-			
-		$callName = 'GetSingleItem';
-			
-		$compatibilityLevel = 647;
-			
-		$endpoint = "http://open.api.ebay.com/shopping";
-			
-		$headers [] = "X-EBAY-API-CALL-NAME: $callName";
-			
-		$headers [] = "X-EBAY-API-APP-ID: $appID";
-			
-		$headers [] = "X-EBAY-API-VERSION: $compatibilityLevel";
-			
-		$headers [] = "X-EBAY-API-REQUEST-ENCODING: XML";
-			
-		$headers [] = "X-EBAY-API-RESPONSE-ENCODING: XML";
-			
-		$headers [] = "X-EBAY-API-SITE-ID: 0";
-			
-		$headers [] = "Content-Type: text/xml";
-			
-		$curl = curl_init ( $endpoint );
-			
-		curl_setopt ( $curl, CURLOPT_SSL_VERIFYPEER, FALSE );
-			
-		curl_setopt ( $curl, CURLOPT_SSL_VERIFYHOST, FALSE );
-			
-		curl_setopt ( $curl, CURLOPT_RETURNTRANSFER, 1 );
-			
-		curl_setopt ( $curl, CURLOPT_POST, 1 );
-			
-		curl_setopt ( $curl, CURLOPT_HTTPHEADER, $headers );
-			
-		curl_setopt ( $curl, CURLOPT_POSTFIELDS, $request );
-			
-		$response = curl_exec ( $curl );
-			
-		$data = simplexml_load_string($response) ;
-		//$data=json_decode($jsonresponse);
-		
-$AckResponse = $data->Ack ;
-$result=$AckResponse;
-if($result=='Failure'){
-	$ebay->setItemid($itemID);
-	$ebay->setTitle('Item Not Found');
-	$entityManager->persist($ebay);
-	$entityManager->flush();
-	$result='Item Not Found';
-	
-}
-else{
-	$ebay->setItemid($itemID);
-	$ebay->setTitle($data->Item->Title);
-	$ebay->setSeller($data->Item->Location);
-	$ebay->setPrice($data->Item->ConvertedCurrentPrice);
-	$ebay->setImage($data->Item->PictureURL);
-	$entityManager->persist($ebay);
-	$entityManager->flush();
-	$result='Success';
-	
-}
-		
-	}
 	//$search=$entityManager->getRepository('App:EBayItem')->findBy();
 	
 		return $this->render('base.html.twig',array(
