@@ -32,9 +32,15 @@ class Autor{
 	protected $nombre;
 
 	/*
-	*  @ORM\ManyToMany(targetEntity="Libro")
-     * @ORM\JoinColumn(name="libro_id", referencedColumnName="id", mappedBy="autores")
-     * @Assert\Count(min="1")
+	*  @ORM\ManyToMany(targetEntity="Libro", mappedBy="autores")
+    * @ORM\JoinTable(
+     *  name="autor_libro",
+     *  joinColumns={
+     *      @ORM\JoinColumn(name="autor_id", referencedColumnName="id")
+     *  },
+     *  inverseJoinColumns={
+     *      @ORM\JoinColumn(name="libro_id", referencedColumnName="id")
+     *  }     * @Assert\Count(min="1")
 	 */
 
 	protected $libros;
