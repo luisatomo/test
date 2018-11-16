@@ -30,6 +30,14 @@ class Autor{
 	 */
 	
 	protected $nombre;
+
+	/*
+	*  @ORM\ManyToMany(targetEntity="Libro")
+     * @ORM\JoinColumn(name="libro_id", referencedColumnName="id")
+     * @Assert\Count(min="1")
+	 */
+
+	protected $libros;
 	
 	
 	public function getId() {
