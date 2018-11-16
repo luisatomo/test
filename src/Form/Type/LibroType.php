@@ -26,12 +26,7 @@ class LibroType extends AbstractType
 		->add('autores', EntityType::class, array(
 				'multiple' => true,   // Multiple selection allowed
 				'expanded' => true,   // Render as checkboxes // Assuming that the entity has a "name" property
-				'class'    => Autor::class,
-				'query_builder' => function (EntityRepository $repo) {
-                    return $repo->createQueryBuilder('a')
-                        ->where('a.id > :id')
-                        ->setParameter('id', 1);
-                }
+				'class'    => Autor::class
 			));
 		//->add('save', 'submit', array('attr' => array('class'=>'buttonx')));
 	}

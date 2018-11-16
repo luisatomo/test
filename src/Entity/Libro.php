@@ -38,7 +38,7 @@ class Libro{
 
 	/*
 	*  @ORM\ManyToMany(targetEntity="Autor")
-     * @ORM\JoinColumn(name="autor_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="autor_id", referencedColumnName="id",inversedBy="libros")
      * @Assert\Count(min="1")
 	 */
 

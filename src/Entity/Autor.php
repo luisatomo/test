@@ -33,7 +33,7 @@ class Autor{
 
 	/*
 	*  @ORM\ManyToMany(targetEntity="Libro")
-     * @ORM\JoinColumn(name="libro_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="libro_id", referencedColumnName="id", mappedBy="autores")
      * @Assert\Count(min="1")
 	 */
 
