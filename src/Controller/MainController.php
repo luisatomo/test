@@ -41,6 +41,25 @@ $em->flush();
         return $this->render('new.html.twig', array(
             'form' => $form->createView(),
         ));
+	}
+	
+	public function newAutor(Request $request)
+    {
+		$em=$this->getDoctrine()->getManager();
+        $autor = new Autor();
+
+        $form = $this->createForm(AutorType::class, $autor);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+$em->persist($autor);
+$em->flush();
+		}
+
+        return $this->render('newAutor.html.twig', array(
+            'form' => $form->createView(),
+        ));
     }
     
 }

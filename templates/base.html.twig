@@ -12,14 +12,16 @@
   </head>
   <body>
 <header>
-    <h1>Libros</h1>
+    <h1>Libros APP</h1>
 </header>
 <div class="main-content">
 <div class="container">
 <nav>
 <ul class="menu">
-<li><a href="{{ path('front') }}">Libros</a></li>
+<li><a href="{{ path('front') }}">Listar Libros</a></li>
 <li><a href="{{ path('new') }}">Nuevo Libro</a></li>
+<li><a href="{{ path('autores') }}">Listar Autores</a></li>
+<li><a href="{{ path('newautor') }}">Nuevo Autor</a></li>
 </ul>
 </nav>
 {% if result %}
@@ -27,6 +29,7 @@
 {% endif %}
  
  {% block content %}
+ <h2>Listar Libros</h2>
 <table class="table">
 <thead><th>Titulo</th><th>Edicion</th><th>Autores</th></thead>
 {% for libro in libros %}

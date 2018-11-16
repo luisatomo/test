@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+{% block content %}
+{{ form_start(form, { 'attr': {'class': 'form'} }) }}
+    {{ form_errors(form) }}
+<div class="row">
+<div class="col-sm-12">
+    {{ form_errors(form.nombre) }}
+    {{form_label(form.nombre)}}
+{{form_widget(form.nombre,{ 'attr': {'class': 'form-control'} }) }}
+       </div>
+</div>
+<button>Guardar</button>
+{{ form_rest(form) }}
+{{ form_end(form) }}
+{% endblock %}
+{% block customjs %}
+{% endblock %}

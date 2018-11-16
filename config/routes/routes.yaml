@@ -6,6 +6,14 @@ new:
     path: /new
     controller: App\Controller\MainController::new
 
+newautor:
+    path: /nuevoAutor
+    controller: App\Controller\MainController::newAutor
+
+autores:
+    path: /autores
+    controller: App\Controller\MainController::autores
+
 edit:
     path: /
     controller: App\Controller\MainController::edit

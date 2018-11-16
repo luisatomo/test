@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+{% block content %}
+<h2>Listar Autores</h2>
+<table class="table">
+<thead><th>Nombre</th></thead>
+{% for autor in autores %}
+<tr><td>{{ autor.nombre }}</td></tr>
+{% endfor %}
+</table>
+{% endblock %}
+{% block customjs %}
+{% endblock %}
