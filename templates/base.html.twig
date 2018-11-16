@@ -33,7 +33,7 @@
 <table class="table table-striped">
 <thead><th>Titulo</th><th>Edicion</th><th>Autores</th></thead>
 {% for libro in libros %}
-<tr><td>{{ libro.titulo }}</td><td>{{libro.fecha|date('d/m/Y')}}</td><td>{{ libro.autorescount}}</td></tr>
+<tr><td><a href="{{path('edit',{'id':libro.id})}}"{{ libro.titulo }}</td><td>{{libro.fecha|date('d/m/Y')}}</td><td>{{ libro.autorescount}}</td></tr>
 {% endfor %}
 <tfoot><th>Titulo</th><th>Edicion</th><th>Autores</th></tfoot>
 </table>

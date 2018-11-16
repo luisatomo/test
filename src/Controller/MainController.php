@@ -55,6 +55,25 @@ $em->flush();
             'form' => $form->createView(),
         ));
 	}
+
+	public function edit(Request $request, $id)
+    {
+		$em=$this->getDoctrine()->getManager();
+        $libro = new Libro();
+
+        $form = $this->createForm(LibroType::class, $libro);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+$em->persist($libro);
+$em->flush();
+		}
+
+        return $this->render('new.html.twig', array(
+            'form' => $form->createView(),
+        ));
+	}
 	
 	public function newAutor(Request $request)
     {

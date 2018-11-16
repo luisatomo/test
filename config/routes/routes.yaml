@@ -15,7 +15,7 @@ autores:
     controller: App\Controller\MainController::autores
 
 edit:
-    path: /
+    path: /edit/{id}
     controller: App\Controller\MainController::edit
     
 remove:
