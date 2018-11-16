@@ -1,7 +1,7 @@
 {% extends "base.html.twig" %}
 {% block content %}
 <h2>Listar Autores</h2>
-<table class="table">
+<table class="table table-striped">
 <thead><th>Nombre</th></thead>
 {% for autor in autores %}
 <tr><td>{{ autor.nombre }}</td></tr>
