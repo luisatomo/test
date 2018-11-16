@@ -8,7 +8,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  *
- * @ORM\Table(name="cb_libro")
+ * @ORM\Table(name="cb_autor")
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks()
  */
