@@ -18,14 +18,12 @@
 </header>
 <div class="main-content">
 <div class="container">
-<nav>
-<ul class="menu">
-<li><a href="{{ path('front') }}">Listar Libros</a></li>
-<li><a href="{{ path('new') }}">Nuevo Libro</a></li>
-<li><a href="{{ path('autores') }}">Listar Autores</a></li>
-<li><a href="{{ path('newautor') }}">Nuevo Autor</a></li>
+<ul class="nav-tabs">
+<li class="nav-item"><a class="nav-link" href="{{ path('front') }}">Listar Libros</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ path('new') }}">Nuevo Libro</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ path('autores') }}">Listar Autores</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ path('newautor') }}">Nuevo Autor</a></li>
 </ul>
-</nav>
 {% if result %}
 <p class="bg bg-warning">{{ result }}</p>
 {% endif %}
