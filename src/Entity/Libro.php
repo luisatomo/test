@@ -69,7 +69,11 @@ class Libro{
 	public function getAutores()
     {
         return $this->autores;
-    }
+	}
+	
+	public function getAutoresCount(){
+		return count($this->autores);
+	}
 	
 	
 	
