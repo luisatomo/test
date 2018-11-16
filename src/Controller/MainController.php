@@ -59,7 +59,8 @@ $em->flush();
 	public function edit(Request $request, $id)
     {
 		$em=$this->getDoctrine()->getManager();
-        $libro = new Libro();
+        $libro = $em->getRepository('App:Libro')
+		->findBy(array('id'=>$id));
 
         $form = $this->createForm(LibroType::class, $libro);
 
@@ -71,6 +72,26 @@ $em->flush();
 		}
 
         return $this->render('new.html.twig', array(
+            'form' => $form->createView(),
+        ));
+	}
+
+	public function editAutor(Request $request, $id)
+    {
+		$em=$this->getDoctrine()->getManager();
+        $autor = $em->getRepository('App:Autor')
+		->findBy(array('id'=>$id));
+
+        $form = $this->createForm(AutorType::class, $autor);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+$em->persist($autor);
+$em->flush();
+		}
+
+        return $this->render('newAutor.html.twig', array(
             'form' => $form->createView(),
         ));
 	}
