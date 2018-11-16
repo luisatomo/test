@@ -13,7 +13,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ORM\HasLifecycleCallbacks()
  */
 
-class Autor{
+class AutorLibro{
 	/**
 	 *
 	 * @ORM\Column(name="id", type="integer", nullable=false)
