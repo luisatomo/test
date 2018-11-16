@@ -36,17 +36,13 @@ class Libro{
 	 */
 	protected $fecha;
 
-	/*
-	*  @ORM\ManyToMany(targetEntity="Autor", inversedBy="libros")
-     * @ORM\JoinTable(
-     *  name="autor_libro",
-     *  joinColumns={
-     *      @ORM\JoinColumn(name="libro_id", referencedColumnName="id")
-     *  },
-     *  inverseJoinColumns={
-     *      @ORM\JoinColumn(name="autor_id", referencedColumnName="id")
-     *  }     * @Assert\Count(min="1")
-	 */
+	/**
+     * @ManyToMany(targetEntity="Autor")
+     * @JoinTable(name="autor_libro",
+     *      joinColumns={@JoinColumn(name="libro_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@JoinColumn(name="autor_id", referencedColumnName="id", unique=true)}
+     *      )
+     */
 
 	protected $autores;
 
