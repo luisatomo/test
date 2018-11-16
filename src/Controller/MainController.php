@@ -60,7 +60,7 @@ $em->flush();
     {
 		$em=$this->getDoctrine()->getManager();
         $libro = $em->getRepository('App:Libro')
-		->findBy(array('id'=>$id));
+		->findOneBy(array('id'=>$id));
 
         $form = $this->createForm(LibroType::class, $libro);
 
@@ -80,7 +80,7 @@ $em->flush();
     {
 		$em=$this->getDoctrine()->getManager();
         $autor = $em->getRepository('App:Autor')
-		->findBy(array('id'=>$id));
+		->findOneBy(array('id'=>$id));
 
         $form = $this->createForm(AutorType::class, $autor);
 
