@@ -15,12 +15,12 @@ class MainController extends Controller
 	
 	public function index(Request $request)
 	{
-		//$entityManager = $this->getDoctrine()->getManager();
-	$result='OK';		
-	//$search=$entityManager->getRepository('App:EBayItem')->findBy();
+		$em = $this->getDoctrine()->getManager();
+	//$result='OK';		
+	$libros=$entityManager->getRepository('App:Libro')->findAll();
 	
 		return $this->render('base.html.twig',array(
-				'result' => $result
+				'libros' => $libros
 		));
 	
 	}
