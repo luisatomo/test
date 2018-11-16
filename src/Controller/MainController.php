@@ -31,7 +31,7 @@ class MainController extends Controller
 	//$result='OK';		
 	$autores=$em->getRepository('App:Autor')->findAll();
 	
-		return $this->render('base.html.twig',array(
+		return $this->render('autores.html.twig',array(
 				'autores' => $autores
 		));
 	
