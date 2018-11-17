@@ -53,6 +53,8 @@ $this->addFlash(
 	'notice',
 	'El libro ha sido creado'
 );
+return $this->redirectToRoute('front');
+
 		}
 
         return $this->render('new.html.twig', array(
@@ -77,6 +79,8 @@ $this->addFlash(
 	'notice',
 	'El libro ha sido guardado'
 );
+return $this->redirectToRoute('front');
+
 		}
 
         return $this->render('new.html.twig', array(
@@ -101,6 +105,8 @@ $this->addFlash(
 	'notice',
 	'El autor ha sido guardado'
 );
+return $this->redirectToRoute('front');
+
 		}
 
         return $this->render('newAutor.html.twig', array(
@@ -124,6 +130,7 @@ $this->addFlash(
 	'notice',
 	'El autor ha sido creado'
 );
+return $this->redirectToRoute('front');
 		}
 
         return $this->render('newAutor.html.twig', array(
