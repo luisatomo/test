@@ -25,8 +25,13 @@
 <li class="nav-item"><a class="nav-link" href="{{ path('newautor') }}">Nuevo Autor</a></li>
 </ul>
 
- 
+  {% for message in app.flashes('notice') %}
+    <div class="flash-notice bg-secondary">
+        {{ message }}
+    </div>
+{% endfor %}
  {% block content %}
+
  <h2>Listar Libros</h2>
 <table class="table table-striped">
 <thead><th>Titulo</th><th>Edicion</th><th>Autores</th></thead>
@@ -74,11 +79,6 @@ $(document).ready(function() {
 } );
 </script>
   {% block customjs %}
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
-  $( function() {
-      $( ".table tfoot th:eq(2)" ).datepicker( "option", "dateFormat", 'dd/MM/YYYY');
-    });
   {% endblock %}
   </body>
 </html>

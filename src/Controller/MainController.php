@@ -49,6 +49,10 @@ class MainController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
 $em->persist($libro);
 $em->flush();
+$this->addFlash(
+	'notice',
+	'El libro ha sido creado'
+);
 		}
 
         return $this->render('new.html.twig', array(
@@ -69,6 +73,10 @@ $em->flush();
         if ($form->isSubmitted() && $form->isValid()) {
 $em->persist($libro);
 $em->flush();
+$this->addFlash(
+	'notice',
+	'El libro ha sido guardado'
+);
 		}
 
         return $this->render('new.html.twig', array(
@@ -89,6 +97,10 @@ $em->flush();
         if ($form->isSubmitted() && $form->isValid()) {
 $em->persist($autor);
 $em->flush();
+$this->addFlash(
+	'notice',
+	'El autor ha sido guardado'
+);
 		}
 
         return $this->render('newAutor.html.twig', array(
@@ -108,6 +120,10 @@ $em->flush();
         if ($form->isSubmitted() && $form->isValid()) {
 $em->persist($autor);
 $em->flush();
+$this->addFlash(
+	'notice',
+	'El autor ha sido creado'
+);
 		}
 
         return $this->render('newAutor.html.twig', array(
